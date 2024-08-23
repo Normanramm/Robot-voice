@@ -1,9 +1,21 @@
 import pyttsx3
 
-# Произношение текста 
-friend = pyttsx3.init()
-voices = friend.getProperty('voices')
-friend.setProperty('voice', voices [1].id)
-friend.say("Harshit, You are superb. Also, I am your subscriber and I like your videos too muc")
-friend.runAndWait()
-friend. stop()
+
+def golos():
+    tts = pyttsx3.init()
+
+    voices = tts.getProperty('voices')
+
+    # Задать голос по умолчанию
+    tts.setProperty('voice', 'ru')
+
+    # Попробовать установить предпочтительный голос
+    for voice in voices:
+        if voice.name == 'Aleksandr':
+            tts.setProperty('voice', voice.id)
+
+    tts.say(input("Введите текст и он будет звучать: "))
+    tts.runAndWait()
+
+
+golos()
